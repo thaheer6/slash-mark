@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA_Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>personal portfolio website</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="header">
+    <div class="container">
+        <nav>
+            <img src="images/logo.png" class="logo">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">about</a></li>
+                <li><a href="#">services</a></li>
+                <li><a href="#">portfolio</a></li>
+                <li><a href="#">contact</a></li>
+            </ul>
+        </nav>
+        <div class="header-text">
+            <p>UI/UX Designer</p>
+            <h1>Hi, I'm <span>shaik</span><br>thaheer from india</h1>
+        </div>
+    </div>
+</div>
+<!-- -------------about--------- -->
+<div id="about">
+    <div class="container">
+        <div class="row">
+            <div class="about-col-1">
+                <img src="images/thahir.jpeg">
+            </div>
+            <div class="about-col-2">
+                <h1 class="sub-title">About Me</h1>
+                <p>Hello, I'm thaheer, a passionate and versatile professional with a love for both web design and Java programming. With a background in creating captivating user experiences and developing robust software solutions, I bring creativity, technical expertise, and a relentless drive for excellence to every project I undertake.
+                    <br>I am excited about the opportunity to collaborate on projects that leverage my skills in web design and Java programming to create impactful digital experiences. Let's connect and explore how we can bring your vision to life.
+                </p>
+
+                <div class="tab-titles">
+                    <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
+                    <p class="tab-links" onclick="opentab('experience')">Experience</p>
+                    <p class="tab-links" onclick="opentab('education')">Education</p>
+                </div>
+                <div class="tab-contents active-tab" id="skills">
+                    <ul>
+                        <li><span>UI/UX</span><br>designing web /app interfaces</li>
+                        <li><span>web development</span><br>web app development</li>
+                        <li><span>java developer</span><br>building gaming apps</li>
+                        <li><span>auto mobile engineer</span><br>design engineer</li>
+                    </ul>
+                </div>
+                <div class="tab-contents" id="experience">
+                    <ul>
+                        <li><span>2023-2024</span><br>APH SOLUTIONS</li>
+                    </ul>
+                </div>
+                <div class="tab-contents" id="education">
+                    <ul>
+                        <li><span>2024 - current</span><br>computer science engineering at narayana engineering college,gudur</li>
+                        <li><span>2020-2023</span><br>Diploma in mechanical engineering from govt.polytechnic,gudur</li>
+                        <li><span>2022-2023</span><br>auto mobile training at TVS company</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!------------------------services--------------------->
+<div id="services">
+    <div class="container">
+        <h1 class="sub-title">my Services</h1>
+        <div id="services-list">
+            <div>
+                <i class="fa-solid fa-code"></i>
+                <h2>Web Design</h2>
+                <p> Designing and building custom websites for individuals, businesses, or organizations.</p>
+                <a href="#">learn more</a>
+            </div>
+            <div>
+
+                <i class="fa-solid fa-language"></i>
+                <h2>Language Proficiency</h2>
+                <p>My fluency in Hindi,English,telugu enables me to navigate global markets and connect with clients worldwide, facilitating smooth communication and successful project outcomes." </p>
+                <a href="#">learn more</a>
+             </div>
+        </div>
+     </div>
+</div>
+<!----------------portfolio------------->
+</div>
+<div id="contact">
+    <div class="container">
+        <div class="row">
+            <div class="contact-left">
+                <h1 class="sub=title">Contact Me</h1class></h1>
+                <p><i class="fa-solid fa-envelope"></i>thaheershaik666@gmail.com</p>
+                <p><i class="fa-solid fa-phone"></i>7416092522</p>
+                <div class="social-icons">
+                    <a href="https://www.instagram.com/_thahir_28?igsh=MWFubWx6ODEwd3dtaA=="><i class="fab fa-instagram"></i></a>
+                    <a href=""><i class="fab fa-linkedin"></i></a>
+                </div>
+                <div class="contact-right">
+                    <form name="submit-to-google-sheet">
+                        <input type="text" name="Name" placeholder="your name" required>
+                        <input type="email" name="Email" placeholder="your email" required>
+                        <textarea name="Message" rows="6" placeholder="your message"></textarea>
+                        <button type="submit" class="btn btn2">submit</button>
+                    </form>
+                    <spanid="msg"></spanid></span>
+                </div>
+            </div>
+        </div>
+</div>
+    
+<script>
+    var tablinks = document.getElementsByClassName("tab-links");
+    var tabcontents = document.getElementsByClassName("tab-contents");
+    function opentab(tabname){
+        for(tablink of tablinks){
+            tablink.classList.remove("active-link");
+        }
+        for(tabcontent of tabcontents){
+            tabcontent.classList.remove("active-tab");
+        }
+        event.currentTarget.classList.add("active-link");
+        document.getElementById(tabname).classList.add("active-tab");
+    }
+</script>
+
+</script>
+<script>
+    var sidemenu = document.getElementById("sidemenu");
+    function openmenu(){
+        sidemenu.style.right="0";
+    }
+    function closemenu(){
+        sidemenu.style.right="-200";
+    }
+</script>
+<form name="submit-to-google-sheet">
+   
+  </form>
+  
+  <script>
+    const scriptURL = 'https://docs.google.com/spreadsheets/d/1e0HvmhJkp0AKo_43CuFmoIWU-J5SaV-1rFpXoxeHh0k/edit?usp=sharing'
+    const form = document.forms['submit-to-google-sheet']
+    const msg = document.getElementById("msg")
+    form.addEventListener('submit', e => {
+      e.preventDefault()
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => {
+            msg.innerHTML= "Message sent Successfully"
+            setTimeout(function(){
+                msg.innerHTML = " "
+            },5000)
+            form.reset()
+        })
+        .catch(error => console.error('Error!', error.message))
+    })
+  </script>
+</body>
+</html>
